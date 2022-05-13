@@ -9,9 +9,9 @@
 }
 
 .wrapper {
-    height: 60vh;
-    margin: 15vh auto 0;
-    width: 60vw;
+    max-height: 60rem;
+    margin: 10vh auto 0;
+    width: 50vw;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -34,27 +34,13 @@
 .slides {
     height: inherit;
     width: inherit;
-    background-size: cover;
 }
 
-.slide1 {
-    background-image: url(http://habrastorage.org/files/3f2/628/bd5/3f2628bd58c8452db516195cb0c9bfc9.jpg);
-}
-
-.slide2 {
-    background-image: url(http://habrastorage.org/files/3e1/95d/c7f/3e195dc7f5a64469807f49a14f97ba0e.jpg);
-}
-
-.slide3 {
-    background-image: url(http://habrastorage.org/files/663/6b1/d4f/6636b1d4f8e643d29eab8c192fc1cea3.jpg);
-}
-
-.slide4 {
-    background-image: url(http://habrastorage.org/files/e59/424/c04/e59424c046be4dab897d84ab015c87ea.jpg);
-}
-
-.slide5 {
-    background-image: url(http://habrastorage.org/files/53c/ff6/c1c/53cff6c1caf842368c70b8ef892d8402.jpg);
+.slides img {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    max-height: 100%;
 }
 
 .wrapper .controls {
@@ -84,13 +70,14 @@
 }
 
 
-.wrapper label:hover span,
+.wrapper label:hover span {
+    background: #ddd;
+}
 #slide1:checked ~ .controls-block .controls label:nth-of-type(1) span,
 #slide2:checked ~ .controls-block .controls label:nth-of-type(2) span,
 #slide3:checked ~ .controls-block .controls label:nth-of-type(3) span,
-#slide4:checked ~ .controls-block .controls label:nth-of-type(4) span,
-#slide5:checked ~ .controls-block .controls label:nth-of-type(5) span {
-    background: #aaa;
+#slide4:checked ~ .controls-block .controls label:nth-of-type(4) span {
+    background: rgb(129, 129, 129);
 }
 
 .slides {
@@ -114,8 +101,7 @@
 #slide1:checked ~ .slider > .slide1,
 #slide2:checked ~ .slider > .slide2,
 #slide3:checked ~ .slider > .slide3,
-#slide4:checked ~ .slider > .slide4,
-#slide5:checked ~ .slider > .slide5 {
+#slide4:checked ~ .slider > .slide4 {
     display: block;
     animation: ani 0.5s ease-in-out forwards;
 }
@@ -135,8 +121,7 @@
 #slide1:checked ~ .controls-block .description > .description1,
 #slide2:checked ~ .controls-block .description > .description2,
 #slide3:checked ~ .controls-block .description > .description3,
-#slide4:checked ~ .controls-block .description > .description4,
-#slide5:checked ~ .controls-block .description > .description5 {
+#slide4:checked ~ .controls-block .description > .description4 {
     display: block;
     animation: ani 0.5s ease-in-out forwards;
 }
@@ -152,6 +137,11 @@
 }
 
 @media (max-width: 768px) { 
+    .wrapper {
+        min-width: 32rem;
+        width: 80vw;        
+    }
+
     .controls-block {
         flex-direction: column-reverse;
     }

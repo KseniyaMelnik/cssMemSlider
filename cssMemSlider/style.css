@@ -12,6 +12,9 @@
     height: 60vh;
     margin: 15vh auto 0;
     width: 60vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 .slider {
     background-color: #ddd;
@@ -141,8 +144,22 @@
 .controls-block {
     display: flex;
     justify-content: space-between;
+    gap: 2rem;
 }
 .description {
     display: flex;
     justify-content: center;
 }
+
+@media (max-width: 768px) { 
+    .controls-block {
+        flex-direction: column-reverse;
+    }
+
+    .wrapper .controls {
+        justify-content: center;
+     }
+     .description {
+        justify-content: flex-start;
+    }
+ }

@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 10px;
+}
+
+.wrapper {
+    max-height: 60rem;
+    margin: 10vh auto 0;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.slider {
+    background-color: #ddd;
+    height: inherit;
+    overflow: hidden;
+    width: inherit;
+    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+    -moz-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+    -o-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+    box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+}
+
+.wrapper > input {
+    display: none;
+}
+
+.slides {
+    height: inherit;
+    width: inherit;
+}
+
+.slides img {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    max-height: 100%;
+}
+
+.wrapper .controls {
+   display: flex;
+   justify-content: flex-end;
+}
+
+.wrapper label {
+    cursor: pointer;
+}
+
+.wrapper label span{
+    cursor: pointer;
+    display: block;
+    border: 0.2rem solid #ddd;
+    height: 2rem;
+    width: 2rem;
+    margin: 1rem;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-transition: background ease-in-out .5s;
+    -moz-transition: background ease-in-out .5s;
+    -o-transition: background ease-in-out .5s;
+    transition: background ease-in-out .5s;
+}
+
+
+.wrapper label:hover span {
+    background: #ddd;
+}
+#slide1:checked ~ .controls-block .controls label:nth-of-type(1) span,
+#slide2:checked ~ .controls-block .controls label:nth-of-type(2) span,
+#slide3:checked ~ .controls-block .controls label:nth-of-type(3) span,
+#slide4:checked ~ .controls-block .controls label:nth-of-type(4) span {
+    background: rgb(129, 129, 129);
+}
+
+.slides {
+    height: inherit;
+    display: none;
+    width: inherit;
+    transform: translateX(-150%);
+    -webkit-transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+    -moz-transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+    -o-transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+    transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+}
+
+.descriptions {
+    display: none;
+    transform: translateX(-150%);
+    font-size: 2.4rem;
+    color: darkgrey;
+}
+
+#slide1:checked ~ .slider > .slide1,
+#slide2:checked ~ .slider > .slide2,
+#slide3:checked ~ .slider > .slide3,
+#slide4:checked ~ .slider > .slide4 {
+    display: block;
+    animation: ani 0.5s ease-in-out forwards;
+}
+
+
+@keyframes ani {
+  0% {transform: translateX(-150%);}
+  15% {transform: translateX(5%);}
+  30% {transform: translateX(-5%);}
+  45% {transform: translateX(3%);}
+  60% {transform: translateX(-3%);}
+  75% {transform: translateX(1%);}
+  85% {transform: translateX(-1%);}
+  100% {transform: translateX(0);}
+}
+
+#slide1:checked ~ .controls-block .description > .description1,
+#slide2:checked ~ .controls-block .description > .description2,
+#slide3:checked ~ .controls-block .description > .description3,
+#slide4:checked ~ .controls-block .description > .description4 {
+    display: block;
+    animation: ani 0.5s ease-in-out forwards;
+}
+
+.controls-block {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+.description {
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 768px) { 
+    .wrapper {
+        min-width: 32rem;
+        width: 80vw;        
+    }
+
+    .controls-block {
+        flex-direction: column-reverse;
+    }
+
+    .wrapper .controls {
+        justify-content: center;
+     }
+     .description {
+        justify-content: flex-start;
+    }
+ }
